@@ -292,21 +292,19 @@ header.scroll-nav .header-wrap__logo .logo{
           }
           &:last-of-type{
             width:auto;
+            margin-top: 2%;
             & a{
               width:auto;
               display:inline-block;
-              background-color: transparent;
-              padding-top:0;
-              padding-bottom:0;
-              color: $cBlack;
+              background-color: $cBlack;
+              padding:0 4%;
+              line-height: 2.4;
+              letter-spacing: 2.5px;
+              border-radius: 40px;
+              color: $cWhite;
               & i {
-                margin-right: 1%;
+                margin-right: 3%;
                 font-size: 1.2rem;
-              }
-            }
-            &:hover a{
-              &::after{
-                width:100%;
               }
             }
           }
