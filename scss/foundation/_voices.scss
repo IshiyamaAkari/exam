@@ -1,0 +1,67 @@
+@use "../global" as *;
+
+.__voices {
+  background-image: url(../img/voices.jpg);
+}
+.voices-archive-wrap {
+  &__con__list {
+    @include flex(space-between);
+    align-items: flex-start;
+    flex-wrap: wrap;
+    &__item {
+      width:45%;
+      display: block;
+      &:not(:last-child){
+        margin-bottom: 10%;
+      }
+      &__img {
+        overflow: hidden;
+        width:100%;
+        & img {
+          height: auto;
+          transition: opacity .7s, transform .8s;
+          width: 100%;
+        }
+      }
+      &__txt {
+        margin-top: 3%;
+        transition: opacity .7s, transform .8s;
+        width: 100%;
+        & .name {
+          display: block;
+          margin-bottom: 1%;
+        }
+        & ttl{
+          margin-top: 1%;
+        }
+      }
+      &:hover {
+        & img {
+          transform: scale(1.07);
+        }
+      }
+    }
+  }
+}
+
+@include mq(tb){
+  .voices-archive-wrap__con__list {
+    flex-direction: column;
+    &__item {
+      width: 100%;
+    }
+  }
+}
+@include mq(sp) {
+  .voices-archive-wrap__con__list__item{
+    &__txt {
+      & .name{
+        margin-bottom: 2%;
+      }
+      & .ttl{
+        margin-bottom: 2%;
+      }
+    }
+  }
+
+}

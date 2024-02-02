@@ -1,0 +1,89 @@
+@use "../global" as *;
+
+.__company{
+  background-image: url(../img/company2.jpg);
+}
+.purpose-wrap{
+  @include flex(space-between);
+  align-items: flex-start;
+  &__con{
+    width:55%;
+  }
+}
+.pics-wrap{
+  width:100%;
+  padding:0 0;
+  &__list{
+    & li{
+      width:50%;
+      & img{
+        width:100%;
+      }
+    }
+  }
+}
+.profile-wrap__con__list {
+  &__item {
+    border-top: solid 0.8px $cGrey;
+    @include flex(flex-start);
+    &:nth-of-type(8) {
+      border-bottom: solid 0.8px $cGrey;
+    }
+    &__ttl {
+      padding: 2% 0 2% 3%;
+      width: 30%;
+      background-color: $cGrey_3;
+    }
+    &__txt {
+      padding: 2% 0 2% 5%;
+
+      & br {
+        display: none;
+      }
+    }
+  }
+}
+
+@include mq(tb){
+  .purpose-wrap{
+    display: block;
+    &__con{
+      width:100%;
+      & .txt-con{
+        & br:nth-of-type(2){
+          display: none;
+        }
+      }
+    }
+  }
+  .profile-wrap__con__list__item {
+    &__txt br{
+      display: block;
+    }
+    &:nth-of-type(2){
+      & .profile-wrap__con__list__item__ttl{
+      line-height: 3.6;
+      }
+    }
+  }
+}
+@include mq(sp) {
+  .profile-wrap__con__list__item {
+    display: block;
+    &:nth-of-type(2) {
+      & .profile-wrap__con__list__item__ttl {
+        line-height: 1.8;
+      }
+    }
+    &__ttl{
+      width:100%;
+      line-height: 1.8;
+    }
+    &__txt{
+      margin-top: 0%;
+      padding-left: 3%;
+      padding-top:3%;
+      padding-bottom: 3%;
+    }
+  }
+}

@@ -1,0 +1,235 @@
+@use "../global" as *;
+//テキスト滑らかに表示アニメーション//
+span.smoothText {
+  overflow: hidden;
+  display: block;
+}
+
+span.smoothTextTrigger {
+  transition: .8s ease-in-out;
+  transform: translate3d(0, 100%, 0) skewY(12deg);
+  transform-origin: left;
+  display: block;
+}
+
+span.smoothTextTrigger.smoothTextAppear {
+  transform: translate3d(0, 0, 0) skewY(0);
+}
+
+//テキスト左から右に向かって表示アニメーション//
+.slide-in {
+  overflow: hidden;
+  display: inline-block;
+}
+
+.slide-in_inner {
+  display: inline-block;
+
+}
+
+.leftAnime {
+  opacity: 0;
+}
+
+.slideAnimeLeftRight {
+  animation-name: slideTextX100;
+  animation-duration: 0.8s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+@keyframes slideTextX100 {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.slideAnimeRightLeft {
+  animation-name: slideTextX-100;
+  animation-duration: 0.8s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+@keyframes slideTextX-100 {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+//フェードアップ
+.fadeUp {
+  animation-name: fadeUpAnime;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+@keyframes fadeUpAnime {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.swing {
+  animation-name: swing;
+  animation-duration: 2s;
+  animation-delay: 1s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes swing {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+
+  55% {
+    -webkit-transform: rotate(0deg);
+  }
+
+  60% {
+    -webkit-transform: rotate(-10deg);
+  }
+
+  65% {
+    -webkit-transform: rotate(8deg);
+  }
+
+  70% {
+    -webkit-transform: rotate(-5deg);
+  }
+
+  75% {
+    -webkit-transform: rotate(4deg);
+  }
+
+  80% {
+    -webkit-transform: rotate(-3deg);
+  }
+
+  85% {
+    -webkit-transform: rotate(2deg);
+  }
+
+  90% {
+    -webkit-transform: rotate(-1deg);
+  }
+
+  95% {
+    -webkit-transform: rotate(1deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(0deg);
+  }
+}
+
+@-webkit-keyframes swing {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+
+  55% {
+    -webkit-transform: rotate(0deg);
+  }
+
+  60% {
+    -webkit-transform: rotate(-10deg);
+  }
+
+  65% {
+    -webkit-transform: rotate(8deg);
+  }
+
+  70% {
+    -webkit-transform: rotate(-5deg);
+  }
+
+  75% {
+    -webkit-transform: rotate(4deg);
+  }
+
+  80% {
+    -webkit-transform: rotate(-3deg);
+  }
+
+  85% {
+    -webkit-transform: rotate(2deg);
+  }
+
+  90% {
+    -webkit-transform: rotate(-1deg);
+  }
+
+  95% {
+    -webkit-transform: rotate(1deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(0deg);
+  }
+}
+/* Loading背景画面設定　*/
+#splash {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  background: $cWhite;
+  text-align: center;
+  color: #fff;
+}
+
+/* Loading画像中央配置　*/
+#splash_logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Loading アイコンの大きさ設定　*/
+#splash_logo svg {
+  width: 300px;
+}
+
+/*=============== SVGアニメーション内の指定 =================*/
+
+/*アニメーション前の指定*/
+#mask path {
+  fill-opacity: 0;
+  transition: fill-opacity .5s;
+  fill: none;
+  stroke: $cBlack;
+}
+
+/*アニメーション後に.doneというクラス名がで付与された時の指定*/
+#mask.done path {
+  fill: $cBlack;
+  fill-opacity: 1;
+  stroke: none;
+}
+
+@include mq(sp){
+  #splash_logo svg {
+    width: 180px;
+  }
+}

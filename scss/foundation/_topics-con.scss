@@ -1,0 +1,35 @@
+@use "../global" as *;
+
+.topics-article {
+  &-wrap {
+    &__con {
+      width: 72%;
+      margin: 0 auto;
+      & img {
+        width: 100%;
+        margin: 5% auto;
+      }
+    }
+  }
+}
+
+
+@include mq(tb) {
+  .topics-article-wrap {
+    width: 75%;
+
+    &__con {
+      width: 100%;
+    }
+  }
+}
+
+@include mq(sp) {
+  .topics-article-wrap {
+    width: 80%;
+
+    &__con {
+      width: 100%;
+    }
+  }
+}

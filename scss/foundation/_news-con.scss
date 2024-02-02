@@ -1,0 +1,32 @@
+@use "../global" as *;
+
+.news-article {
+  &-wrap{
+    &__con {
+      width: 72%;
+      margin: 0 auto;
+      & img{
+        width:100%;
+        margin:5% auto;
+      }
+    }
+  }
+}
+
+@include mq(tb) {
+  .news-article-wrap {
+    width: 75%;
+    &__con {
+      width: 100%;
+    }
+  }
+}
+
+@include mq(sp) {
+  .news-article-wrap {
+    width: 80%;
+    &__con{
+      width:100%;
+    }
+  }
+}

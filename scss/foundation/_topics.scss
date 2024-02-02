@@ -1,0 +1,80 @@
+@use "../global" as *;
+
+.__topics {
+  background-image: url(../img/topics.jpg);
+}
+
+.topics-archive-wrap {
+  &__con {
+    &__list {
+      @include flex(space-between);
+      align-items: flex-start;
+      flex-wrap: wrap;
+      &__item {
+        width: 28%;
+        margin-bottom: 10%;
+        &__img {
+          width: 100%;
+          & img {
+            width: 100%;
+            box-shadow: 0 4px 4px 0 $cShadow;
+          }
+        }
+        &__txt{
+          margin-top: 1%;
+          & .date{
+            margin-bottom: 1%;
+          }
+          & .ttl{
+            margin-bottom: 1%;
+          } 
+        }
+        &:hover {
+          &.topics-archive-wrap__con__list__item {
+            transition: all 0.5s ease-in-out;
+            opacity: 0.7;
+          }
+          & .topics-archive-wrap__con__list__item__img img {
+            transition: all 0.5s ease-in-out;
+            border-radius: 60px 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include mq(pc){
+  .topics-archive-wrap__con__list__item {
+    width:30%;
+  }
+}
+
+@include mq(tb){
+  .topics-archive-wrap__con{
+    width:100%;
+    margin:0 auto;
+    &__list{
+      flex-direction: column;
+      &__item{
+        width:100%;
+      }
+    }
+
+  }
+}
+@include mq(sp) {
+  .topics-archive-wrap__con{
+    &__list__item{
+      &__txt{
+        margin-top:2%;
+        & .date{
+          margin-bottom: 2%;
+        }
+        & .ttl{
+          margin-bottom: 2%;
+        }
+      }
+    }
+  }
+}
